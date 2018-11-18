@@ -7,42 +7,39 @@ public class ClientConsoleReader {
     public Client readClientData(){
         Client client = new Client();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ai ales sa finalizezi comanda.\nCompleteaza datele personale");
-        System.out.println("Prenume");
+        System.out.println("Continue order.\n Add personal details.");
+        System.out.println("First name");
         client.setFirstName(scanner.nextLine());
-        System.out.println("Nume");
+        System.out.println("Last name");
         client.setLastName(scanner.nextLine());
-        System.out.println("Adresa");
+        System.out.println("Address");
         client.setAddress(scanner.nextLine());
-        System.out.println("Email");
+        System.out.println("Email address");
         client.setAddress(scanner.nextLine());
-        System.out.println("Telefon");
+        System.out.println("Contact number");
         client.setPhone(scanner.nextInt());
         return client;
-
     }
 
     public static int insertClientId(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Alege ID-ul produsului pe care vrei sa-l stergi");
+        System.out.println("Select the client ID you would like to delete.");
         int clientId = scanner.nextInt();
         return clientId;
     }
 
     public Client editAddress(Client client){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Editeaza datele utilizatorului");
+        System.out.println("Edit user data.");
         System.out.println("Edit address");
         client.setAddress(scanner.nextLine());
         return client;
     }
 
-
-
     public static void insertBankAccount(){
         Client client = new Client();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ai ales sa platesti cu cardul. Introdu datele contului tau bancar");
+        System.out.println("You selected card payment. Add your bank details. 0 - Next");
         client.setBankAccount(scanner.nextLine());
     }
 }

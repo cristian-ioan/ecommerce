@@ -10,5 +10,4 @@ public class ClientConsoleWriter {
                 client.getEmail() + " " +
                 client.getPhone());
     }
-
 }

@@ -6,14 +6,14 @@ import java.util.Scanner;
 public class ClientConsoleMenu {
     ClientService clientService = new ClientService();
     ClientConsoleWriter clientWriter = new ClientConsoleWriter();
-ClientConsoleReader clientConsoleReader = new ClientConsoleReader();
+    ClientConsoleReader clientConsoleReader = new ClientConsoleReader();
     public void displayMenuClients() {
 
         Scanner scanner = new Scanner( System.in );
-       int option;
+        int option;
         do {
             displayClientOptions();
-            System.out.print("Choose option: ");
+            System.out.print("Select option: ");
             option = scanner.nextInt();
             switch (option) {
                 case 1:
@@ -23,13 +23,12 @@ ClientConsoleReader clientConsoleReader = new ClientConsoleReader();
                     addClient();
                     break;
                 case 3: editClient();
-                break;
+                    break;
                 case 4:
                     deleteClient();
                     break;
                 case 0:
                     break;
-
             }
         } while (option != 0);
     }

@@ -9,8 +9,6 @@ public class ClientService {
     ClientConsoleReader clientReader = new ClientConsoleReader();
     ClientStore clientStore = new ClientStore();
 
-
-
     public void addClient(Client client) {
         clientStore.add(client);
     }
