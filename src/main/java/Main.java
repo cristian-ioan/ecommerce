@@ -6,6 +6,6 @@ public class Main {
         ConsoleMenu consoleMenu = new ConsoleMenu();
         consoleMenu.displayConsoleMenu();
 //        ProductFileStorage shop = new ProductFileStorage("E:/shop.txt");
-//        shop.start(); from desktop
+//        shop.start(); from desktop 2
     }
 }
