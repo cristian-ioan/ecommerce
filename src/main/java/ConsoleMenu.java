@@ -1,6 +1,7 @@
 import client.ClientConsoleMenu;
 import order.OrderConsoleMenu;
 import product.Product;
+import product.ProductConsoleMenu;
 import product.ProductConsoleWriter;
 
 import java.util.Scanner;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class ConsoleMenu {
     private ClientConsoleMenu clientConsoleMenu = new ClientConsoleMenu();
     private OrderConsoleMenu orderConsoleMenu = new OrderConsoleMenu();
+    private ProductConsoleMenu productConsoleMenu = new ProductConsoleMenu();
 
     public void displayConsoleMenu() {
         System.out.println( "Console Menu:" );
@@ -21,7 +23,7 @@ public class ConsoleMenu {
             System.out.println("Select menu option: ");
             option =  scanner.nextInt();
             switch (option) {
-                case 1:// ProductConsoleWriter.displayMenuProdcuts();
+                case 1: productConsoleMenu.displayMenuProducts();
                     break;
                 case 2: orderConsoleMenu.displayMenuOrders();
                     break;
