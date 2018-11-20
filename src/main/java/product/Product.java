@@ -5,22 +5,24 @@ import java.util.Map;
 
 public class Product {
 
-    private double idProduct;
+    private int idProduct;
     private String categoryName;
     private String productName;
     private double priceProduct;
+    private int stockProduct;
 
     public Product() {
     }
 
-    public Product(double idProduct, String categoryName, String productName, double priceProduct ){
+    public Product(int idProduct, String categoryName, String productName, double priceProduct, int stockProduct ){
         this.idProduct = idProduct;
         this.categoryName = categoryName;
         this.productName = productName;
         this.priceProduct = priceProduct;
+        this.stockProduct = stockProduct;
     }
 
-    public double getIdProduct() {
+     public int getIdProduct() {
         return idProduct;
     }
 
@@ -50,5 +52,13 @@ public class Product {
 
     public void setPriceProduct(double priceProduct) {
         this.priceProduct = priceProduct;
+    }
+
+    public int getStockProduct() {
+        return stockProduct;
+    }
+
+    public void setStockProduct(int stockProduct) {
+        this.stockProduct = stockProduct;
     }
 }
