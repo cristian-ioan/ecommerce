@@ -83,4 +83,5 @@ public class Client {
     public void setBankAccount(String bankAccount) {
         this.bankAccount = bankAccount;
     }
+
 }

@@ -7,13 +7,14 @@ public class ClientConsoleMenu {
     ClientService clientService = new ClientService();
     ClientConsoleWriter clientWriter = new ClientConsoleWriter();
     ClientConsoleReader clientConsoleReader = new ClientConsoleReader();
+
     public void displayMenuClients() {
 
-        Scanner scanner = new Scanner( System.in );
+        Scanner scanner = new Scanner(System.in);
         int option;
         do {
             displayClientOptions();
-            System.out.print("Select option: ");
+            System.out.print("Choose option: ");
             option = scanner.nextInt();
             switch (option) {
                 case 1:
@@ -22,13 +23,15 @@ public class ClientConsoleMenu {
                 case 2:
                     addClient();
                     break;
-                case 3: editClient();
+                case 3:
+                    editClient();
                     break;
                 case 4:
                     deleteClient();
                     break;
                 case 0:
                     break;
+
             }
         } while (option != 0);
     }
@@ -63,6 +66,7 @@ public class ClientConsoleMenu {
         Client client= clientService.getClientById( id );
         clientService.deleteClient( client );
     }
+
     private void editClient(){
         Scanner scanner = new Scanner( System.in );
         System.out.print("Which client do you want to edit? Enter ID: ");
@@ -70,6 +74,5 @@ public class ClientConsoleMenu {
         Client client= clientService.getClientById( id );
         client = clientConsoleReader.editAddress( client );
         clientService.updateClient( client );
-
     }
 }

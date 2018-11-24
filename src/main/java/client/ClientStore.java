@@ -26,7 +26,6 @@ public class ClientStore extends GenericStore<Client> {
     @Override
     public void delete(Client value) {
         clientList.remove( value );
-
     }
 
     @Override
@@ -34,7 +33,6 @@ public class ClientStore extends GenericStore<Client> {
         Client oldClient = getById( value.getIdClient());
         clientList.remove( oldClient );
         clientList.add( value );
-
     }
 
     @Override
@@ -45,7 +43,7 @@ public class ClientStore extends GenericStore<Client> {
     @Override
     public Client getById(int id) {
         for(Client client:clientList){
-            if(client.getIdClient()==id){
+            if(client.getIdClient() == id){
                 return client;
             }
         }

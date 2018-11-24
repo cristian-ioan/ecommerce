@@ -1,11 +1,9 @@
 package client;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-
 
 public class ClientService {
+
     ClientConsoleReader clientReader = new ClientConsoleReader();
     ClientStore clientStore = new ClientStore();
 
@@ -15,7 +13,6 @@ public class ClientService {
 
     public void deleteClient(Client client) {
         clientStore.delete( client );
-
     }
 
     public Client getClientById(int id){
@@ -26,9 +23,7 @@ public class ClientService {
         clientStore.update( client );
     }
 
-
-
-   public List<Client> getAllClients(){
+    public List<Client> getAllClients(){
         return clientStore.getAll();
    }
 
