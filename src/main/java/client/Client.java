@@ -1,6 +1,6 @@
 package client;
 
-public class Client {
+public class Client implements Comparable<Client>{
 
     private int idClient;
     private String firstName;
@@ -83,5 +83,8 @@ public class Client {
     public void setBankAccount(String bankAccount) {
         this.bankAccount = bankAccount;
     }
-
+    @Override
+    public int compareTo(Client o) {
+        return idClient - o.idClient;
+    }
 }

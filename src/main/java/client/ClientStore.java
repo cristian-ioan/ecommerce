@@ -1,6 +1,7 @@
 package client;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ClientStore extends GenericStore<Client> {
@@ -37,6 +38,7 @@ public class ClientStore extends GenericStore<Client> {
 
     @Override
     public List<Client> getAll() {
+        Collections.sort(clientList);
         return clientList;
     }
 

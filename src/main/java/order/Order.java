@@ -3,7 +3,7 @@ package order;
 import client.Client;
 import product.Product;
 
-public class Order {
+public class Order implements Comparable <Order>{
 
     private int orderID;
     private Client client;
@@ -71,6 +71,11 @@ public class Order {
 
     public void setTotalValue(int totalValue) {
         this.totalValue = totalValue;
+    }
+
+    @Override
+    public int compareTo(Order o) {
+        return orderID - o.orderID;
     }
 
 }

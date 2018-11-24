@@ -1,6 +1,7 @@
 package order;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class OrderStore extends client.GenericStore<Order> {
@@ -40,6 +41,7 @@ public class OrderStore extends client.GenericStore<Order> {
 
     @Override
     public List<Order> getAll() {
+        Collections.sort(orderList);
         return orderList;
     }
 
