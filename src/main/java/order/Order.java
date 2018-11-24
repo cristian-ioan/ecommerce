@@ -1,8 +1,13 @@
 package order;
 
+import client.Client;
+import product.Product;
+
 public class Order {
 
     private int orderID;
+    private Client client;
+    private Product product;
     private String paymentType;
     private String deliveryType;
     private int totalValue;
@@ -11,11 +16,29 @@ public class Order {
 
     }
 
-    public Order(int orderID, String paymentType, String deliveryType, int totalValue) {
+    public Order(int orderID, Client client, Product product, String paymentType, String deliveryType, int totalValue) {
         this.orderID = orderID;
+        this.client = client;
+        this.product = product;
         this.paymentType = paymentType;
         this.deliveryType = deliveryType;
         this.totalValue = totalValue;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getOrderID() {
@@ -49,4 +72,5 @@ public class Order {
     public void setTotalValue(int totalValue) {
         this.totalValue = totalValue;
     }
+
 }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class OrderConsoleMenu {
 
     OrderService orderService = new OrderService();
-    OrderConsoleWritter orderWritter = new OrderConsoleWritter();
+    OrderConsoleWriter orderWritter = new OrderConsoleWriter();
     OrderConsoleReader orderReader = new OrderConsoleReader();
 
     public void displayMenuOrders() {

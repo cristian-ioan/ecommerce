@@ -19,14 +19,14 @@ public class OrderConsoleReader {
         System.out.println("2. Ramburs");
         int option;
         do {
-        option = scanner.nextInt();
-        switch (option) {
-            case 1: clientReader.insertBankAccount();
-                break;
-            case 2: System.out.println("You selected to pay cash.");
-                break;
-        }
-    } while (option != 0);
+            option = scanner.nextInt();
+            switch (option) {
+                case 1: clientReader.insertBankAccount();
+                    break;
+                case 2: System.out.println("You selected to pay cash.");
+                    break;
+            }
+        } while (option != 0);
 
         System.out.println("Select delivery type: ");
         System.out.println("1. Currier");
