@@ -3,7 +3,6 @@ import java.util.*;
 
 public class ProductStore extends GenericStore<Product>{
 
-
     private List<Product> productList = new ArrayList<>();
 
     @Override
@@ -28,6 +27,7 @@ public class ProductStore extends GenericStore<Product>{
 
     @Override
     public List getAll() {
+        Collections.sort( productList );
         return productList;
     }
 

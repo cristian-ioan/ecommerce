@@ -1,8 +1,5 @@
 package product;
 
-import java.util.Map;
-import java.util.Scanner;
-
 public class ProductConsoleWriter {
 
     public void displayProductData(Product product){

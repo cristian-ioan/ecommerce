@@ -64,6 +64,7 @@ public class ProductConsoleMenu {
         Product product = productService.getProductById( id );
         productService.deleteProduct( product );
     }
+
     private void editProduct(){
         Scanner scanner = new Scanner( System.in );
         System.out.print("Which product do you want to edit? Enter ID: ");
@@ -71,6 +72,8 @@ public class ProductConsoleMenu {
         Product product= productService.getProductById( id );
         product = productConsoleReader.editPrice( product );
         productService.updateProduct( product );
-
+        product = productConsoleReader.editStock( product );
+        productService.updateProduct( product );
     }
+
 }

@@ -1,9 +1,6 @@
 package product;
 
-import java.util.ArrayList;
-import java.util.Map;
-
-public class Product {
+public class Product implements Comparable<Product> {
 
     private int idProduct;
     private String categoryName;
@@ -22,7 +19,7 @@ public class Product {
         this.stockProduct = stockProduct;
     }
 
-     public int getIdProduct() {
+    public int getIdProduct() {
         return idProduct;
     }
 
@@ -60,5 +57,17 @@ public class Product {
 
     public void setStockProduct(int stockProduct) {
         this.stockProduct = stockProduct;
+    }
+
+    @Override
+    public int compareTo(Product o) {
+//        if (idProduct<o.idProduct){
+//            return -1;
+//        } else if(idProduct==o.idProduct){
+//            return 0;
+//        } else {
+//            return 1;
+//        }
+        return idProduct - o.idProduct;
     }
 }

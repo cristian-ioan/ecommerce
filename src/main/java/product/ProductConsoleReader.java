@@ -33,4 +33,11 @@ public class ProductConsoleReader {
         return product;
     }
 
+    public Product editStock(Product product){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Edit stock: ");
+        product.setStockProduct(scanner.nextInt());
+        return product;
+    }
+
 }
