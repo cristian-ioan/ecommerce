@@ -12,14 +12,14 @@ public class ConsoleMenu {
     private ProductConsoleMenu productConsoleMenu = new ProductConsoleMenu();
 
     public void displayConsoleMenu() {
-        System.out.println( "Console Menu:" );
-        System.out.println( "1. Products" );
-        System.out.println( "2. Orders" );
-        System.out.println( "3. Clients" );
-        System.out.println( "0. Exit" );
         Scanner scanner = new Scanner( System.in );
         int option;
         do {
+            System.out.println( "Console Menu:" );
+            System.out.println( "1. Products" );
+            System.out.println( "2. Orders" );
+            System.out.println( "3. Clients" );
+            System.out.println( "0. Exit" );
             System.out.println("Select menu option: ");
             option =  scanner.nextInt();
             switch (option) {
@@ -32,7 +32,7 @@ public class ConsoleMenu {
                     break;
                 case 0:
                     break;
-                }
-            } while (option != 0);
-        }
+            }
+        } while (option != 0);
     }
+}
