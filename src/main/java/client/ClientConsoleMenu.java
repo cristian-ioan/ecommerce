@@ -1,10 +1,13 @@
 package client;
 
+import order.OrderService;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class ClientConsoleMenu {
-    ClientService clientService = new ClientService();
+
+    ClientService clientService = ClientService.getInstance();
     ClientConsoleWriter clientWriter = new ClientConsoleWriter();
     ClientConsoleReader clientConsoleReader = new ClientConsoleReader();
 
@@ -75,4 +78,5 @@ public class ClientConsoleMenu {
         client = clientConsoleReader.editAddress( client );
         clientService.updateClient( client );
     }
+
 }

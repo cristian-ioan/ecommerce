@@ -17,6 +17,7 @@ public class ClientConsoleReader {
         System.out.println("Email address");
         client.setEmail(scanner.nextLine());
         System.out.println("Contact number");
+        client.setPhone( scanner.nextInt() );
         return client;
     }
 

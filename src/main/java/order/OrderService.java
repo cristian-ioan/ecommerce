@@ -1,11 +1,45 @@
 package order;
 
+import client.Client;
+import client.ClientService;
+import product.Product;
+import product.ProductService;
+
 import java.util.List;
 
 public class OrderService {
 
     OrderConsoleReader orderReader = new OrderConsoleReader();
     OrderStore orderStore = new OrderStore();
+
+    ClientService clientService = ClientService.getInstance();
+    ProductService productService = ProductService.getInstance();
+
+    public boolean isValidProductOrder(int idProduct, int quantity) {
+        boolean isValidProductOrder = false;
+        Product findProduct = productService.getProductById(idProduct);
+        if (findProduct != null) {
+            if (findProduct.getStockProduct() >= quantity) {
+                isValidProductOrder = true;
+            } else {
+                System.out.println("Not enough stock!");
+            }
+        } else {
+            System.out.println("Product not found!");
+        }
+        return isValidProductOrder;
+    }
+
+    public boolean isValidClient(int idClient) {
+        boolean isValidClient = false;
+        Client findClient = clientService.getClientById(idClient);
+        if (findClient != null) {
+            isValidClient = true;
+        } else {
+            System.out.println("Client not found!");
+        }
+        return isValidClient;
+    }
 
     public void addOrder(Order order) {
         //TODO: validate product and client

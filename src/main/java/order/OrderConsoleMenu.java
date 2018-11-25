@@ -62,6 +62,7 @@ public class OrderConsoleMenu {
         Order order = orderService.getOrderById(id);
         orderService.deleteOrder(order);
     }
+
     private void editOrder(){
         Scanner scanner = new Scanner( System.in );
         System.out.print("Which order do you want to edit? Enter ID: ");
@@ -70,4 +71,5 @@ public class OrderConsoleMenu {
         order = orderReader.editOrder(order);
         orderService.updateOrder(order);
     }
+
 }

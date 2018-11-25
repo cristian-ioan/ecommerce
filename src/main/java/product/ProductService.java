@@ -6,6 +6,17 @@ public class ProductService {
 
     ProductStore productStore = new ProductStore();
 
+    //singleton, o singura instanta per clasa
+    private static ProductService productService = new ProductService();
+
+    //facem constructor privat
+    private ProductService(){
+    }
+
+    public static ProductService getInstance(){
+        return productService;
+    }
+
     public void addProduct(Product product) {
         productStore.add( product );
     }

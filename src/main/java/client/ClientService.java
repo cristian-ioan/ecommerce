@@ -7,6 +7,17 @@ public class ClientService {
     ClientConsoleReader clientReader = new ClientConsoleReader();
     ClientStore clientStore = new ClientStore();
 
+    //singleton, o singura instanta per clasa
+    private static ClientService clientService = new ClientService();
+
+    //facem constructor privat
+    private ClientService(){
+    }
+
+    public static ClientService getInstance(){
+        return clientService;
+    }
+
     public void addClient(Client client) {
         clientStore.add(client);
     }

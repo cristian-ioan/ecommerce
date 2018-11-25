@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ProductConsoleMenu {
 
-    ProductService productService = new ProductService();
+    ProductService productService = ProductService.getInstance();
     ProductConsoleWriter productWriter = new ProductConsoleWriter();
     ProductConsoleReader productConsoleReader = new ProductConsoleReader();
 
