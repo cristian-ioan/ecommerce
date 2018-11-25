@@ -1,11 +1,14 @@
 package product;
+
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import util.GenericStore;
 import util.Paths;
 
-import java.io.*;
-import java.util.*;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class ProductStore extends GenericStore<Product>{
 
@@ -26,8 +29,10 @@ public class ProductStore extends GenericStore<Product>{
     @Override
     public void update(Product value) {
         Product oldProduct = getById( value.getIdProduct());
-        objectList.remove( oldProduct );
-        objectList.add( value );
+//        objectList.remove( oldProduct );
+        int idx = objectList.indexOf(value);
+        objectList.add(idx, value);
+//        objectList.add( value );
         writeJson();
     }
 
@@ -54,7 +59,7 @@ public class ProductStore extends GenericStore<Product>{
 
     @Override
     protected List<Product> getListFromJson(Gson gson, Reader reader) {
-        return Arrays.asList(gson.fromJson(reader, Product[].class));
+        return new ArrayList<>(Arrays.asList(gson.fromJson(reader, Product[].class)));
     }
 
     private int generateIdProduct(){

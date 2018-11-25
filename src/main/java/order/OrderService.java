@@ -9,11 +9,39 @@ import java.util.List;
 
 public class OrderService {
 
-    OrderConsoleReader orderReader = new OrderConsoleReader();
     OrderStore orderStore = new OrderStore();
-
+    //instanta de clasa clientService
     ClientService clientService = ClientService.getInstance();
     ProductService productService = ProductService.getInstance();
+    //singleton, o singura instanta per clasa
+    private static OrderService orderService = new OrderService();
+
+    //facem constructor privat
+    private OrderService(){
+
+    }
+
+    public static OrderService getInstance(){
+        return orderService;
+    }
+
+
+    public boolean isValidStock(int idProduct, int quantity) {
+        Product product = productService.getProductById(idProduct);
+        boolean isValidProductOrder = false;
+//        for (Product product : allProducts) {
+//            if (product.getIdProduct() == (idProduct)) {
+                if (product.getStockProduct() >= quantity) {
+                    isValidProductOrder = true;
+                } else {
+                    System.out.println("Not enough stock!");
+                }
+//            } else {
+//                System.out.println("Product not found!");
+//            }
+//        }
+        return isValidProductOrder;
+    }
 
     public boolean isValidProductOrder(int idProduct, int quantity) {
         boolean isValidProductOrder = false;
@@ -42,23 +70,32 @@ public class OrderService {
     }
 
     public void addOrder(Order order) {
-        //TODO: validate product and client
-        //TODO: validate and subtract from stock
+        if (isValidStock(order.getProduct().getIdProduct(), order.getQuantity())) {
+            //scadem din stock
+            int stock = order.getProduct().getStockProduct();
+            order.getProduct().setStockProduct(stock - order.getQuantity());
+            //setam in order in order
+            order.setStatus(OrderStatusType.IN_PROGRESS);
+
+        }
         orderStore.add(order);
-
+        productService.updateProduct(order.getProduct());
     }
 
-    //TODO: cancel order
-    public void cancelOrder(Order order){
-        //TODO: validate that order exists
-        //TODO: update status to OrderStatusType.CANCELED
-        //TODO: return products to stock
+    public void cancelOrder(int idOrder){
+        Order order = orderStore.getById(idOrder);
+        if(order.getOrderID()==idOrder){
+            System.out.println("Order is found");
+            order.setStatus(OrderStatusType.CANCELED);
+           int stock = order.getProduct().getStockProduct();
+           stock = stock + order.getQuantity();
+           order.getProduct().setStockProduct(stock);
+           order.setQuantity(0);
+        }else{
+            System.out.println("Order not found");
+        }
     }
 
-    public void deleteOrder(Order order) {
-        orderStore.delete(order);
-
-    }
 
     public Order getOrderById(int id){
         return orderStore.getById(id);

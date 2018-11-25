@@ -1,5 +1,7 @@
 package product;
 
+import java.util.Objects;
+
 public class Product implements Comparable<Product> {
 
     private int idProduct;
@@ -60,6 +62,17 @@ public class Product implements Comparable<Product> {
     }
 
     @Override
+    public String toString() {
+        return "Product{" +
+                "idProduct=" + idProduct + "\n" +
+                ", categoryName='" + categoryName + '\'' + "\n" +
+                ", productName='" + productName + '\'' + "\n" +
+                ", priceProduct=" + priceProduct + "\n" +
+                ", stockProduct=" + stockProduct + "\n" +
+                '}';
+    }
+
+    @Override
     public int compareTo(Product o) {
 //        if (idProduct<o.idProduct){
 //            return -1;
@@ -69,5 +82,18 @@ public class Product implements Comparable<Product> {
 //            return 1;
 //        }
         return idProduct - o.idProduct;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return getIdProduct() == product.getIdProduct();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getIdProduct());
     }
 }

@@ -1,11 +1,10 @@
 package client;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import util.GenericStore;
 import util.Paths;
 
-import java.io.*;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -68,6 +67,6 @@ public class ClientStore extends GenericStore<Client> {
 
     @Override
     protected List<Client> getListFromJson(Gson gson, Reader reader) {
-        return Arrays.asList(gson.fromJson(reader, Client[].class));
+        return new ArrayList<>(Arrays.asList(gson.fromJson(reader, Client[].class)));
     }
 }

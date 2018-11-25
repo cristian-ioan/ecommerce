@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class OrderConsoleMenu {
 
-    OrderService orderService = new OrderService();
+    OrderService orderService = OrderService.getInstance();
     OrderConsoleWriter orderWritter = new OrderConsoleWriter();
     OrderConsoleReader orderReader = new OrderConsoleReader();
 
@@ -37,7 +37,7 @@ public class OrderConsoleMenu {
         System.out.println( "1. Display all orders" );
         System.out.println( "2. Add order" );
         System.out.println( "3. Edit order" );
-        System.out.println( "4. Delete order" );
+        System.out.println( "4. Cancel order" );
         System.out.println( "0. Exit" );
     }
 
@@ -60,7 +60,7 @@ public class OrderConsoleMenu {
         System.out.print("Which order do you want to delete? Enter ID: ");
         int id = scanner.nextInt();
         Order order = orderService.getOrderById(id);
-        orderService.deleteOrder(order);
+        orderService.cancelOrder(id);
     }
 
     private void editOrder(){
@@ -68,7 +68,7 @@ public class OrderConsoleMenu {
         System.out.print("Which order do you want to edit? Enter ID: ");
         int id = scanner.nextInt();
         Order order = orderService.getOrderById(id);
-        order = orderReader.editOrder(order);
+        order = orderReader.editQuantity(order);
         orderService.updateOrder(order);
     }
 

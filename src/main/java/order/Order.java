@@ -8,21 +8,40 @@ public class Order implements Comparable <Order>{
     private int orderID;
     private Client client;
     private Product product;
-    private String paymentType;
-    private String deliveryType;
+    private PaymentType paymentType;
+    private DeliveryType deliveryType;
     private int totalValue;
+    private int quantity;
+    private OrderStatusType status;
+
+    public OrderStatusType getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatusType status) {
+        this.status = status;
+    }
 
     public Order(){
 
     }
 
-    public Order(int orderID, Client client, Product product, String paymentType, String deliveryType, int totalValue) {
+    public Order(int orderID, Client client, Product product, PaymentType paymentType, DeliveryType deliveryType, int totalValue, int quantity) {
         this.orderID = orderID;
         this.client = client;
         this.product = product;
         this.paymentType = paymentType;
         this.deliveryType = deliveryType;
         this.totalValue = totalValue;
+        this.quantity = quantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Client getClient() {
@@ -49,19 +68,19 @@ public class Order implements Comparable <Order>{
         this.orderID = orderID;
     }
 
-    public String getPaymentType() {
+    public PaymentType getPaymentType() {
         return paymentType;
     }
 
-    public void setPaymentType(String paymentType) {
+    public void setPaymentType(PaymentType paymentType) {
         this.paymentType = paymentType;
     }
 
-    public String getDeliveryType() {
+    public DeliveryType getDeliveryType() {
         return deliveryType;
     }
 
-    public void setDeliveryType(String deliveryType) {
+    public void setDeliveryType(DeliveryType deliveryType) {
         this.deliveryType = deliveryType;
     }
 
